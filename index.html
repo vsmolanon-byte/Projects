@@ -24,7 +24,7 @@
 		}
 
 		* { box-sizing: border-box; }
-		html { scroll-behavior: smooth; }
+		html { scroll-behavior: smooth; overflow-x: hidden; }
 		body {
 			margin: 0;
 			color: var(--ink);
@@ -140,11 +140,21 @@
 			.wrap { width: min(100% - 26px, 600px); }
 			.hero-orbit { display: none; }
 			header { min-height: 330px; padding-top: 35px; }
-			h1 { font-size: clamp(3rem, 17vw, 5rem); }
+			h1 { max-width: 100%; font-size: clamp(2.35rem, 14vw, 4.5rem); line-height: .9; letter-spacing: -.075em; overflow-wrap: normal; }
+			.hero-copy { max-width: 34rem; font-size: 1rem; }
 			.playground, .rounds-grid { grid-template-columns: 1fr; }
+			.playground > div, .rounds-grid > div, .panel, .progress-panel, .event-panel { min-width: 0; width: 100%; }
 			.society { min-height: auto; }
 			.summary-grid { grid-template-columns: 1fr; }
 			.topbar { font-size: .65rem; }
+		}
+		@media (max-width: 420px) {
+			.wrap { width: calc(100% - 28px); }
+			h1 { max-width: 100%; font-size: clamp(2rem, 10vw, 3.25rem); }
+			h1 span { display: block; max-width: 100%; }
+			.eyebrow { font-size: .68rem; letter-spacing: .13em; }
+			.controls, .society, .progress-panel, .event-panel, .summary-card { padding: 20px; }
+			.section-label { font-size: .65rem; letter-spacing: .12em; }
 		}
 	</style>
 </head>
